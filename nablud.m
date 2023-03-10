@@ -2,8 +2,8 @@
 %меняем А и В под наши нужды
 format rational
 A = [0 1 0
-     4 0 0
-     0 -1 -1] 
+    4 0 0
+    0 -1 -1] 
 
 C = [1 0 0]
 
@@ -15,14 +15,24 @@ rg = rank(Q)
 %% ищем сч матрицы А
 p_UnP=poly(A);
 r=roots(p_UnP)
-%% ищем правый собственный вектор
-A_ = [-2 1 0
-    4 -2 0
-    0 -1 -3]
-[V,D] = eig(A_)
-
-
 %% 
+S_UnP= [1 0
+    -2 -1];
+p_UnP=poly(S_UnP);
+r=roots(p_UnP)
+
+%% ищем правый собственный вектор
+% лямбда тот, КОТОРЫЙ ДВИГАЕМ
+syms alpha betta gamma
+lambda = 2
+A-lambda*eye(size(A))
+V_pr = [alpha
+    betta
+    gamma]
+(A-lambda*eye(size(A))) * V_pr
+
+
+%% P = [V_pr а тут достраиваем до нужной размерности столбики]
 P = [3 0 1
     6 1 0
     -2 0 0]
