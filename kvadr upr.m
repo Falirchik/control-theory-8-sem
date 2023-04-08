@@ -11,9 +11,8 @@ Q =[1 0
 B=[0
     1]
 
-C=sqrtm(Q)
-%C=[1 0
-%    0 1]
+% C=sqrtm(Q)
+C=[1 0]
 %% 
 
 C_u = [B A*B A^2*B]
@@ -27,7 +26,7 @@ rg = rank(Q_n)
 
 %% 
 
-R=1/9
+R=1
 
 Q+A'*X+X*A-X*B*(R^(-1))*B'*X
 tmp=care(A,B,Q,R)
